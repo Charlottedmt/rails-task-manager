@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center">
+  <div class="card mt-5" style="width: 18rem;">
+    <div class="card-body">
+      <h4 class="card-title"> <%= @task.title %> </h4>
+        <h5> Details of the task : </h5>
+        <%= @task.details%>
+        <% if @task.completed %>
+        <i class="far fa-check-square"> <em>This task has been completed</em></i>
+        <% else %>
+        <i class="far fa-square"> <em>This task is not completed yet </em></i>
+        <%end%>
+
+
+      <div>
+        <%= link_to edit_task_path(@task) do%>
+        <i class="far fa-edit"></i> Edit
+        <%end%>
+      </div>
+      <div>
+        <%= link_to task_path(@task), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i> Delete
+        <% end %>
+      </div>
+      <div>
+        <%= link_to "Back to the main list", tasks_path %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
